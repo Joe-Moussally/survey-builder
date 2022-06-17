@@ -44,6 +44,8 @@ class AdminController extends Controller
 
     }
 
+    //function that adds the questions related to the survey
+    //to the questions table
     public function addQuestions(Request $Request) {
 
         $survey_id = $Request->survey_id;
@@ -74,34 +76,7 @@ class AdminController extends Controller
         ],200);
 
     }
+
+    //function that return the answers of a survey
+    //---
 }
-
-    // //function to add a question
-    // public function addQuestions($array) {
-    //     foreach ($questions as $question) {
-
-    //         //add question to table questions
-    //         $to_add = new Question;
-    //         $to_add->question = $question->question;
-    //         $to_add->type = $question->type;
-    //         $to_add->survey_id = $survey_id;
-    //         $to_add->save();
-
-    //         // //get the question id and store the values in values table
-    //         // $question_id = $to_add->id;
-    //         // //get the array of values
-    //         // $values = $question->values;
-
-    //         // for ($j=0; $j<count($values);$j++) {
-    //         //     $value = $values[j];
-
-    //         //     $value_to_add = new Value;
-    //         //     $value_to_add->value = $value;
-    //         //     $value_to_add->question_id = $question_id;
-    //         //     $value_to_add->save();
-    //         // }
-
-
-
-    //     }
-    // }

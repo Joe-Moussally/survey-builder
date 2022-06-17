@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnswerController;
 
 /*JWT TOKEN*/
 Route::group(['middleware' => 'api'], function($router) {
@@ -20,3 +21,6 @@ Route::group(['middleware' => 'api'], function($router) {
     Route::post('/add_survey', [AdminController::class, 'createSurvey']);
     Route::post('/add_questions', [AdminController::class, 'addQuestions']);
 // });
+
+//non-admin apis
+Route::post('/add_answers', [AnswerController::class, 'addAnswers']);
