@@ -16,6 +16,6 @@ Route::group(['middleware' => 'api'], function($router) {
 
 
 //admin middleware
-Route::group(['middleware' => 'admin.role'], function(){
+// Route::group(['middleware' => 'admin.role'], function(){
     Route::post('/test', [AdminController::class, 'createSurvey']);
-});
+// });

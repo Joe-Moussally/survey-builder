@@ -4,18 +4,69 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Survey;
+use App\Models\Question;
+use App\Models\Value;
+
 class AdminController extends Controller
 {
     
-    public function createSurvey() { //pass token in header to get id of user
+    //add survey to db
+    public function createSurvey(Request $Request) { //pass token in header to get id of user
 
         $user = response()->json(auth()->user());
-        $id = $user->original->id;
+        //get id of logged in user
+        // $id = $user->original->id;
 
+        //add survey
+        $survey = new Survey;
+        $survey->title = $Request->title;
+        $survey->user_id = 1;
+        $survey->save();
+
+        //get survey id and add questions
+        $survey_id = $survey->id;
+
+        //question structure --->
+        //{'question':'---',  the question text
+        //'type':'---',   the question type
+        //'values':[--,--,--]}  the values of the answers(are null by default in case of text input)
+
+        $temp = $Request->questions; //array of objects
+        $questions = $temp;
+        // foreach ($questions as $question) {
+
+        //     //add question to table questions
+        //     $to_add = new Question;
+        //     $to_add->question = $question->question;
+        //     $to_add->type = $question->type;
+        //     $to_add->survey_id = $survey_id;
+        //     $to_add->save();
+
+        //     //get the question id and store the values in values table
+        //     $question_id = $to_add->id;
+        //     //get the array of values
+        //     $values = $question->values;
+
+        //     for ($j=0; $j<count($values);$j++) {
+        //         $value = $values[j];
+
+        //         $value_to_add = new Value;
+        //         $value_to_add->value = $value;
+        //         $value_to_add->question_id = $question_id;
+        //         $value_to_add->save();
+        //     }
+
+
+
+        // }
 
         return response()->json([
-            'user' => $user
+            'test' => $questions,
+            'message' => 'success'
         ],200);
     }
+
+    //function to add a question
 
 }
