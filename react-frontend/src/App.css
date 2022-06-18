@@ -57,3 +57,13 @@ input {
 #values input {
     width: 60px;
 }
+
+.display-question-admin {
+    font-size: 22px;
+    margin: 20px 0;
+    border-bottom: 1px black solid;
+}
+
+.display-answers-admin {
+    transform: translateX(20px);
+}

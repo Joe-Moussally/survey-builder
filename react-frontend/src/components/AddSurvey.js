@@ -35,23 +35,26 @@ const AddSurvey = () => {
 
     //add the question to the survey
     const addQuestion = () => {
+        let values_tags;
         let question = document.getElementById('question').value;
         let type =  document.getElementById('type').value;
 
         if (question != '') {
             questions.push(<Question type={type}/>)
             setQuestions(questions) 
-            document.getElementById('questions-container').innerHTML += '<div>'+question+'&nbsp&nbsp<strong>type: '+type+'</strong></div>'
-            let values_tags = document.getElementsByClassName('values')//get the values container
+            document.getElementById('questions-container').innerHTML += '<div class="display-question-admin"><strong>'+question+'&nbsp&nbsp type: '+type+'</strong></div>'
+            values_tags = document.getElementsByClassName('values')//get the values container
             console.log(values_tags.length)
 
             //get the values inserted
             //for radios and checkboxes
             for (let i=0; i<values_tags.length;i++) {
                 console.log(values_tags[i].value)
+                document.getElementById('questions-container').innerHTML += '<div class="display-answers-admin">'+values_tags[i].value+'</div>'
             }
 
             setTypeInput(Text)
+            document.getElementById('question').value = ''
         }
     }
 
