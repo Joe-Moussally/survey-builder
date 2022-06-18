@@ -51,4 +51,27 @@ const add_question = (id,q) => {
 
 }
 
+
+//add answers
+const add_answers = () => {
+
+    let answers = [
+        {'answer':'deleteeee','question_id':2},
+        {'answer':'dont mess around bro :) (Charbel 2022)','question_id':3}
+    ]
+
+    let data = new FormData();
+    data.append('answers',JSON.stringify(answers))
+
+    axios({
+        method:'POST',
+        url:'http://127.0.0.1:8000/api/add_answers',
+        data:data
+    }).then((Response) => {
+        console.log(Response.data)
+    })
+
+}
+
 add_survey();
+add_answers();
