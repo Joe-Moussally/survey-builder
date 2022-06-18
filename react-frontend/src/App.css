@@ -10,7 +10,8 @@ nav {
     display: flex;
     justify-content: space-around;
     padding: 0 210px;
-    border-bottom: 1px gray solid;
+    border-bottom: .5px rgba(128, 128, 128, 0.458) solid;
+    box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.47);
 }
 
 h1 {
