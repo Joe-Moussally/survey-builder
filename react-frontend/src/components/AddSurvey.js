@@ -10,16 +10,17 @@ import Question from './Question'
 const AddSurvey = () => {
 
     //defining variables
-        const [questions,setQuestions] = useState([]);
+        // const [questions,setQuestions] = useState([]);
+        const questions = []
+        const [arrayQuestions,setArrayQuestions] = useState([])//used to store questions as JSON objects for axios later
         const [type,setType] = useState('text');
         //variable to display input of a type
         const [typeInput,setTypeInput] = useState(Text);
 
     //change the input type
     const handleTypeChange = (e) => {
-        
+
         setType(e.target.value)
-        console.log(type)
         if (e.target.value == 'text') {
             setTypeInput(Text)
         } else if (e.target.value == 'radio') {
@@ -35,27 +36,51 @@ const AddSurvey = () => {
 
     //add the question to the survey
     const addQuestion = () => {
-        let values_tags;
+        let values_tags;//html tags that contain the values
+        let values_array = [];//array to store the values of a question (if any)
         let question = document.getElementById('question').value;
         let type =  document.getElementById('type').value;
 
         if (question != '') {
             questions.push(<Question type={type}/>)
-            setQuestions(questions) 
+            // setQuestions(questions) 
             document.getElementById('questions-container').innerHTML += '<div class="display-question-admin"><strong>'+question+'&nbsp&nbsp type: '+type+'</strong></div>'
             values_tags = document.getElementsByClassName('values')//get the values container
-            console.log(values_tags.length)
+
 
             //get the values inserted
             //for radios and checkboxes
             for (let i=0; i<values_tags.length;i++) {
-                console.log(values_tags[i].value)
                 document.getElementById('questions-container').innerHTML += '<div class="display-answers-admin">'+values_tags[i].value+'</div>'
+                values_array.push(values_tags[i].value)
             }
 
             setTypeInput(Text)
             document.getElementById('question').value = ''
         }
+
+        //add the question, type and values as JSON to array_questions
+        if (question != '') {
+            arrayQuestions.push(
+                {
+                    'question':question,
+                    'type':type,
+                    'values': values_array
+                }
+            )
+
+            setArrayQuestions(arrayQuestions);
+        }
+
+        console.log(arrayQuestions)
+    }
+
+    //function that handles information
+    //when submitting the survey
+    const createSurvey = () => {
+        
+        console.log('questions',arrayQuestions)
+        // let survey_title = document.getElementById('title-input').value
     }
 
 
@@ -63,7 +88,7 @@ const AddSurvey = () => {
         <>
             <div id="survey-container">
                 <h1>Add Survey</h1>
-                <input type='text' placeholder='Enter survey title'></input>
+                <input type='text' placeholder='Enter survey title' id='title-input'></input>
 
                 <br></br>
 
@@ -78,13 +103,15 @@ const AddSurvey = () => {
                 </select>
                 <br></br>
 
-                <label>Enter question title</label>
                 <input id='question' type='text' placeholder = 'Enter question here'></input>
                 <br></br>
                 <div id='input-container'>{typeInput}</div>
                 <button id='add-question' onClick={addQuestion}>Add question</button>
 
                 <div id='questions-container'></div>
+
+                <button id='add-survey' onClick={createSurvey}>Submit</button>
+
             </div>
         </>
 
