@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import axios from 'axios';
+
 import Text from './Text'
 import Radio from './Radio'
 import Checkbox from './Checkbox'
@@ -80,7 +82,19 @@ const AddSurvey = () => {
     const createSurvey = () => {
         
         console.log('questions',arrayQuestions)
-        // let survey_title = document.getElementById('title-input').value
+        let survey_title = document.getElementById('title-input').value
+        let data = new FormData();
+
+        data.append('questions',arrayQuestions)
+        data.append('title',JSON.stringify(survey_title))
+
+        axios({
+            method:'POST',
+            url: 'http://127.0.0.1:8000/api/add_survey',
+            data: data
+        }).then((Response) => {
+            console.log(Response.data)
+        })
     }
 
 
