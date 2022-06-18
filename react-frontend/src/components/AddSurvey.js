@@ -85,15 +85,34 @@ const AddSurvey = () => {
         let survey_title = document.getElementById('title-input').value
         let data = new FormData();
 
-        data.append('questions',arrayQuestions)
-        data.append('title',JSON.stringify(survey_title))
+        data.append('title',survey_title)
 
+        //call the first api to add the survey
+        //and return the survey id to add the questions
         axios({
+            headers: {
+                'content-type':'application/json'
+            },
             method:'POST',
             url: 'http://127.0.0.1:8000/api/add_survey',
             data: data
         }).then((Response) => {
-            console.log(Response.data)
+            let surveyId = Response.data.survey_id
+            let data2 = new FormData();
+            data2.append('survey_id',surveyId)
+            data2.append('questions',JSON.stringify(arrayQuestions))
+            //call second api to add the questions and values
+            //and reference the survey id
+            axios({
+                headers: {
+                    'content-type':'application/json'
+                },
+                method:'POST',
+                url:'http://127.0.0.1:8000/api/add_questions',
+                data:data2
+            }).then(Response => {
+                console.log(Response.data)
+            })
         })
     }
 
