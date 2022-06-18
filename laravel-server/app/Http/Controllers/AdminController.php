@@ -76,6 +76,20 @@ class AdminController extends Controller
         ],200);
 
     }
+    
+    //get surveys published by admin
+    public function getMySurveys(Request $Request) {
+
+        // $user = response()->json(auth()->user());
+        // //get id of logged in user
+        // // $id = $user->original->id;
+
+        $surveys = Survey::where('user_id',1)->get();
+
+        return response()->json([
+            'surveys' => $surveys
+        ],200);
+    }
 
     //function that return the answers of a survey
     //---

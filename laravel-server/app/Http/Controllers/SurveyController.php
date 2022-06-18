@@ -18,12 +18,4 @@ class SurveyController extends Controller
         ],200);
     }
 
-    //get surveys published by admin
-    public function getMySurveys(Request $Request) {
-        $surveys = Survey::where('user_id',$Request->user_id)->get();
-
-        return response()->json([
-            'surveys' => $surveys
-        ],200);
-    }
 }
