@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -10,6 +11,8 @@ import Date from './inputs/Date'
 import Question from './inputs/Question'
 
 const AddSurvey = () => {
+
+    let navigate = useNavigate()
 
     //defining variables
         // const [questions,setQuestions] = useState([]);
@@ -112,6 +115,8 @@ const AddSurvey = () => {
                 data:data2
             }).then(Response => {
                 console.log(Response.data)
+                //redirect to my surveys page
+                navigate('/my_surveys', { replace: true })
             })
         })
     }
