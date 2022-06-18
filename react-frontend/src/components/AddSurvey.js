@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 
-import Text from './Text'
-import Radio from './Radio'
-import Checkbox from './Checkbox'
-import Color from './Color'
-import Date from './Date'
-import Question from './Question'
+import Text from './inputs/Text'
+import Radio from './inputs/Radio'
+import Checkbox from './inputs/Checkbox'
+import Color from './inputs/Color'
+import Date from './inputs/Date'
+import Question from './inputs/Question'
 
 const AddSurvey = () => {
 
