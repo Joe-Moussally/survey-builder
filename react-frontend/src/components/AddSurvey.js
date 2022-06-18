@@ -11,9 +11,9 @@ const AddSurvey = () => {
     //defining variables
         const [type,setType] = useState('text');
         //variable to display input of a type
-        const [typeInput,setTypeInput] = useState('');
+        const [typeInput,setTypeInput] = useState(Text);
 
-    //handleTypeChange
+    //change the input type
     const handleTypeChange = (e) => {
         
         setType(e.target.value)
@@ -31,10 +31,23 @@ const AddSurvey = () => {
         }
     }
 
+    //add the question to the survey
+    const addQuestion = () => {
+        let question = document.getElementById('question');
+        if (question.value != '') {
+
+        }
+    }
+
 
     return ( 
         <>
             <h1>Add Survey</h1>
+            <input type='text' placeholder='Enter survey title'></input>
+
+            <br></br>
+
+            
             <label>Enter question type</label>
             <select name="question-type" id="type" onChange={handleTypeChange}>
                 <option value="text">text</option>
@@ -46,9 +59,12 @@ const AddSurvey = () => {
             <br></br>
 
             <label>Enter question title</label>
-            <input type='text' placeholder = 'Enter question here'></input>
+            <input id='question' type='text' placeholder = 'Enter question here'></input>
             <br></br>
             {typeInput}
+            <button id='add-question' onClick={addQuestion}>Add question</button>
+
+            <div id='questions-container'></div>
         </>
 
         
