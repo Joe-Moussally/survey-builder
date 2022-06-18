@@ -1,7 +1,7 @@
 const Date = () => {
     return ( 
         <>
-        
+            <input type='date'></input>
         </>
      );
 }

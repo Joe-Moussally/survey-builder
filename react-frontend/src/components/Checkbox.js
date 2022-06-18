@@ -3,8 +3,8 @@ const Checkbox = () => {
     const addCheck = () => {
         let value = document.getElementById('checkbox-text').value;
         if (value != '') {
-            document.getElementById('checkboxes-container').innerHTML +=
-            '<input type="checkbox" value="'+value+'">'+value+'</input>'
+            document.getElementById('values').innerHTML +=
+            '<input type="checkbox" value="'+value+'" class="values">'+value+'</input><br/>'
             document.getElementById('checkbox-text').value = ''
         }
     }
@@ -13,11 +13,13 @@ const Checkbox = () => {
     
 
         <>
-            <input id="checkbox-text" placeholder="Enter Checkbox Here"></input>
-            <button id="add-radio" onClick={addCheck}>Add Checkbox</button>
-            
-            <div id="checkboxes-container">
+            <div id="input-container">
+                <input id="checkbox-text" placeholder="Enter Checkbox Here"></input>
+                <button id="add-radio" onClick={addCheck}>Add Checkbox</button>
+                
+                <div id="values">
 
+                </div>
             </div>
         </>
      );

@@ -1,12 +1,9 @@
 const Color = () => {
     return ( 
         <>
-            Color
+            <input type='color' id="color-input"></input>
         </>
      );
 }
  
 export default Color;
-<>
-    Color
-</>

@@ -4,8 +4,8 @@ const Radio = () => {
     const addRadio = () => {
         let value = document.getElementById('radio-text').value;
         if (value != '') {
-            document.getElementById('radios-container').innerHTML +=
-            '<input type="radio" value="'+value+'" name="s">'+value+'</input>'
+            document.getElementById('values').innerHTML +=
+            '<input type="radio" value="'+value+'" name="s" class="values">'+value+'</input><br/>'
             document.getElementById('radio-text').value = ''
         }
     }
@@ -14,11 +14,13 @@ const Radio = () => {
     
 
         <>
-            <input id="radio-text" placeholder="Enter Option Here"></input>
-            <button id="add-radio" onClick={addRadio}>Add Option</button>
-            
-            <div id="radios-container">
+            <div id="input-container">
+                <input id="radio-text" placeholder="Enter Option Here"></input>
+                <button id="add-radio" onClick={addRadio}>Add Option</button>
+                
+                <div id="values">
 
+                </div>
             </div>
         </>
      );
