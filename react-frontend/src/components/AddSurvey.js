@@ -3,12 +3,12 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-import Text from './inputs/Text'
-import Radio from './inputs/Radio'
-import Checkbox from './inputs/Checkbox'
-import Color from './inputs/Color'
-import Date from './inputs/Date'
-import Question from './inputs/Question'
+import Text from './create survey components/Text'
+import Radio from './create survey components/Radio'
+import Checkbox from './create survey components/Checkbox'
+import Color from './create survey components/Color'
+import Date from './create survey components/Date'
+import Question from './create survey components/Question'
 
 const AddSurvey = () => {
 
