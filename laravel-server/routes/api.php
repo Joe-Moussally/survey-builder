@@ -6,6 +6,7 @@ use App\Http\Controllers\JWTController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\QuestionController;
 
 /*JWT TOKEN*/
 Route::group(['middleware' => 'api'], function($router) {
@@ -27,6 +28,9 @@ Route::group(['middleware' => 'api'], function($router) {
 //surveys api
 Route::post('/get_surveys', [SurveyController::class, 'getSurveys']);
 Route::post('/survey_details', [SurveyController::class, 'getSurveyDetails']);
+
+//question apis
+Route::post('/get_values', [QuestionController::class, 'getValues']);
 
 
 //non-admin apis

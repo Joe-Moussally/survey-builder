@@ -117,3 +117,37 @@ input {
     padding: 35px 55px;
     font-size: 32px;
 }
+
+#inspect-survey-container {
+    padding: 40px;
+    width: 100%;
+}
+
+#inspect-survey-container h3 {
+    font-size: 31px;
+}
+
+.question-container {
+    margin: 30px 0;
+    padding: 20px;
+    border-bottom: 1px rgba(128, 128, 128, 0.375) solid;
+}
+
+.question-title {
+    margin: 20px 0;
+}
+
+.title {
+    text-align: center;
+}
+
+.answer-container {
+    transform: translateX(20px);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+.answer-container input {
+    width: fit-content;
+    margin-right: 20px;
+}

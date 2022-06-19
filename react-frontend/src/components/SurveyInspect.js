@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
+import QuestionDisplay from './survey display/QuestionDisplay';
+
 const SurveyInspect = () => {
 
     const [title,setTitle] = useState('')
-    const [questions,setQuestions] = useState('')
+    const [questions,setQuestions] = useState([])
+    const [values,setValues] = useState([])
 
     //fetching survey title and questions
     useEffect(() => {
@@ -31,9 +34,36 @@ const SurveyInspect = () => {
 
     return ( 
         <>
-            <div id='inspect-survey-container'>{params.id}</div>
+            <h1 className='title'>{title}</h1>
+            <div id='inspect-survey-container'>
+
+                {
+                    questions.map(question => 
+                            <div>{<QuestionDisplay
+                                id={question.id}
+                                question={question.question}
+                                type={question.type}
+                                />}
+                            </div>
+                    ) 
+                }
+
+            </div>
         </>
      );
 }
  
 export default SurveyInspect;
+
+// [
+//     {
+//         "id": 327,
+//         "value": "dsa",
+//         "question_id": 145,
+//     },
+//     {
+//         "id": 328,
+//         "value": "asddsa",
+//         "question_id": 145,
+//     }
+// ]
