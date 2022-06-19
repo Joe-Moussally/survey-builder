@@ -30,7 +30,7 @@ const QuestionDisplay = ( { id, question, type } ) => {
                     tags.push(
                         <>
                             <div className="answer-container">
-                                <input type={'radio'} value={value.value}></input>
+                                <input name={id} type={'radio'} value={value.value}></input>
                                 <span>{value.value}</span>
                             </div>
                         </>
