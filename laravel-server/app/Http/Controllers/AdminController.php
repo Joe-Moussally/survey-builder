@@ -24,12 +24,12 @@ class AdminController extends Controller
 
         $user = response()->json(auth()->user());
         //get id of logged in user
-        // $id = $user->original->id;
+        $id = $user->original->id;
 
         //add survey
         $survey = new Survey;
         $survey->title = $Request->title;
-        $survey->user_id = 1;
+        $survey->user_id = $id;
         $survey->save();
 
         //get survey id and add questions
@@ -78,16 +78,17 @@ class AdminController extends Controller
     }
     
     //get surveys published by admin
-    public function getMySurveys(Request $Request) {
+    public function getMySurveys() {
 
-        // $user = response()->json(auth()->user());
-        // //get id of logged in user
-        // // $id = $user->original->id;
+        $user = response()->json(auth()->user());
+        //get id of logged in user
+        $id = $user->original->id;
 
-        $surveys = Survey::where('user_id',1)->get();
+        $surveys = Survey::where('user_id',$id)->get();
 
         return response()->json([
-            'surveys' => $surveys
+            'surveys' => $surveys,
+            'user_id' => $id
         ],200);
     }
 

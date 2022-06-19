@@ -93,8 +93,9 @@ const AddSurvey = () => {
         //call the first api to add the survey
         //and return the survey id to add the questions
         axios({
-            headers: {
-                'content-type':'application/json'
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+localStorage.getItem('token')
             },
             method:'POST',
             url: 'http://127.0.0.1:8000/api/add_survey',
@@ -107,8 +108,9 @@ const AddSurvey = () => {
             //call second api to add the questions and values
             //and reference the survey id
             axios({
-                headers: {
-                    'content-type':'application/json'
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+localStorage.getItem('token')
                 },
                 method:'POST',
                 url:'http://127.0.0.1:8000/api/add_questions',
