@@ -151,3 +151,35 @@ input {
     width: fit-content;
     margin-right: 20px;
 }
+
+#main-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-container input {
+    margin: 30px;
+}
+
+#create-account {
+    background-color: white;
+    border: 4px rgb(0, 73, 128) solid;
+    color: rgb(0, 73, 128);
+}
+
+#continue-user {
+    background-color: white;
+    color: rgb(0, 73, 128);
+    text-decoration: underline;
+    font-size: 17px;
+}
