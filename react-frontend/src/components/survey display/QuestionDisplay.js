@@ -69,6 +69,8 @@ const QuestionDisplay = ( { id, question, type } ) => {
             })
             
 
+        } else if (type == 'color') {
+            setAnswer(<input type={'color'}></input>)
         }
     },[id,type])
 

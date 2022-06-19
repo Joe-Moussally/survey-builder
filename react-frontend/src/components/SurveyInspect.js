@@ -39,7 +39,7 @@ const SurveyInspect = () => {
 
                 {
                     questions.map(question => 
-                            <div>{<QuestionDisplay
+                            <div id={question.id}>{<QuestionDisplay
                                 id={question.id}
                                 question={question.question}
                                 type={question.type}
