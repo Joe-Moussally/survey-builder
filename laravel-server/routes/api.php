@@ -26,6 +26,7 @@ Route::group(['middleware' => 'api'], function($router) {
 
 //surveys api
 Route::post('/get_surveys', [SurveyController::class, 'getSurveys']);
+Route::post('/survey_details', [SurveyController::class, 'getSurveyDetails']);
 
 
 //non-admin apis

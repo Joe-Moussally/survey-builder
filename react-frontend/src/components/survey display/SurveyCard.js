@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
-import axios from 'axios';
+
 
 const SurveyCard = (props) => {
 
