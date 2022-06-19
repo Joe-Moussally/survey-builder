@@ -17,6 +17,8 @@ import MySurveys from './components/MySurveys';
 import SurveyInspect from './components/SurveyInspect';
 import Login from './Login';
 import Signup from './Signup';
+import Form from './components/Form';
+import AllSurveys from './components/AllSurveys';
 
 function App() {
   return (
@@ -32,7 +34,10 @@ function App() {
           <Route path='/signup' element={<Signup />}></Route>
           <Route path="/add" element={<AddSurvey />}></Route>
           <Route path="/my_surveys" element={<MySurveys />}></Route>
+          <Route path="/all_surveys" element={<AllSurveys />}></Route>
           <Route path=":id" element={<SurveyInspect />}></Route>
+          <Route path='/form/:id' element={<Form />}></Route>
+
         </Routes>
 
       </Router>

@@ -11,7 +11,7 @@ const QuestionDisplay = ( { id, question, type } ) => {
     useEffect(()=> {
         if (type == 'text') {
 
-            setAnswer(<input type={'text'}></input>)
+            setAnswer(<input type={'text'} className='input'></input>)
 
         } else if (type == 'radio') {
 
@@ -30,7 +30,7 @@ const QuestionDisplay = ( { id, question, type } ) => {
                     tags.push(
                         <>
                             <div className="answer-container">
-                                <input name={id} type={'radio'} value={value.value}></input>
+                                <input name={id} type={'radio'} value={value.value} className='input'></input>
                                 <span>{value.value}</span>
                             </div>
                         </>
@@ -46,34 +46,40 @@ const QuestionDisplay = ( { id, question, type } ) => {
             //fetch the values of the radio question
             let data = new FormData()
             data.append('id',id)
+
             axios({
+
                 method:'POST',
                 url: 'http://127.0.0.1:8000/api/get_values',
                 data: data
+
             }).then(Response => {
+
                 let values = Response.data.values
                 setValues(values);
                 let tags = [];
                 values.forEach(value => {
+                    
                     tags.push(
                         <>
                             <div className="answer-container">
-                                <input type={'checkbox'} value={value.value}></input>
+                                <input type={'checkbox'} value={value.value} className='input'></input>
                                 <span>{value.value}</span>
                             </div>
                         </>
                     )
+                    
                 });
                 setAnswer(tags)
                 console.log(tags)
+
             })
             
 
         } else if (type == 'color') {
-            setAnswer(<input type={'color'}></input>)
+            setAnswer(<input type={'color'} className='input'></input>)
         }
     },[id,type])
-
 
     return ( 
         <>
