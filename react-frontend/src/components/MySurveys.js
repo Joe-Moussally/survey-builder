@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import SurveyCard from './survey display/SurveyCard';
+import Nav from './Nav';
 
 const MySurveys = () => {
 
@@ -34,7 +35,7 @@ const MySurveys = () => {
     return ( 
 
         <>
-            
+            <Nav />
             <div id='my-surveys-container'>
                 <h1>My surveys</h1>
 

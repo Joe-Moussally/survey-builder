@@ -33,5 +33,6 @@ Route::post('/survey_details', [SurveyController::class, 'getSurveyDetails']);
 Route::post('/get_values', [QuestionController::class, 'getValues']);
 
 
-//non-admin apis
+//answers apis
 Route::post('/add_answers', [AnswerController::class, 'addAnswers']);
+Route::post('/get_answers', [AnswerController::class, 'getAnswers']);

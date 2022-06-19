@@ -6,11 +6,10 @@ import axios from 'axios';
 import QuestionDisplay from './survey display/QuestionDisplay';
 import Nav from './Nav';
 
-const SurveyInspect = () => {
+const Answers = () => {
 
     const [title,setTitle] = useState('')
     const [questions,setQuestions] = useState([])
-    const [values,setValues] = useState([])
 
     //fetching survey title and questions
     useEffect(() => {
@@ -23,7 +22,6 @@ const SurveyInspect = () => {
             url: 'http://127.0.0.1:8000/api/survey_details',
             data: data
         }).then((Response) => {
-            console.log(Response.data.questions)
             setTitle(Response.data.survey.title)
             setQuestions(Response.data.questions)
         })
@@ -44,8 +42,9 @@ const SurveyInspect = () => {
                             <div id={question.id}>{<QuestionDisplay
                                 id={question.id}
                                 question={question.question}
-                                type={question.type}
+                                type={null}
                                 />}
+                                <span></span>
                             </div>
                     ) 
                 }
@@ -55,17 +54,4 @@ const SurveyInspect = () => {
      );
 }
  
-export default SurveyInspect;
-
-// [
-//     {
-//         "id": 327,
-//         "value": "dsa",
-//         "question_id": 145,
-//     },
-//     {
-//         "id": 328,
-//         "value": "asddsa",
-//         "question_id": 145,
-//     }
-// ]
+export default Answers;

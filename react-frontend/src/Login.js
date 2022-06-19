@@ -2,6 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
+import Nav from './components/Nav';
+
 const Login = () => {
 
     const navigate = useNavigate()
@@ -41,7 +43,9 @@ const Login = () => {
                 <input type='password' id='password' placeholder='password'></input>
                 <button id="login" onClick={handleLogin}>Login</button>
                 <button id="create-account" onClick={handleSignUp}>Create Admin Account</button>
-                <button id="continue-user">Continue as Normal User</button>
+                <button id="continue-user" onClick={()=>{
+                    navigate('/all_surveys')
+                }}>Continue as Normal User</button>
             </form>
             </div>
         </>

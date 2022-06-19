@@ -19,14 +19,12 @@ import Login from './Login';
 import Signup from './Signup';
 import Form from './components/Form';
 import AllSurveys from './components/AllSurveys';
+import Answers from './components/Answers';
 
 function App() {
   return (
     <>
       <Router>
-        <Nav />
-        
-
         {/* Adding Routes routes */}
 
         <Routes>
@@ -37,7 +35,7 @@ function App() {
           <Route path="/all_surveys" element={<AllSurveys />}></Route>
           <Route path=":id" element={<SurveyInspect />}></Route>
           <Route path='/form/:id' element={<Form />}></Route>
-
+          <Route path='/answers/:id' element={<Answers />}></Route>
         </Routes>
 
       </Router>

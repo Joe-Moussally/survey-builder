@@ -9,6 +9,7 @@ import Checkbox from './create survey components/Checkbox'
 import Color from './create survey components/Color'
 import Date from './create survey components/Date'
 import Question from './create survey components/Question'
+import Nav from './Nav';
 
 const AddSurvey = () => {
 
@@ -126,6 +127,7 @@ const AddSurvey = () => {
 
     return ( 
         <>
+            <Nav />
             <div id="survey-container">
                 <h1>Add Survey</h1>
                 <input type='text' placeholder='Enter survey title' id='title-input'></input>

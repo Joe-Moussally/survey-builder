@@ -14,6 +14,7 @@ const Nav = () => {
             method:'POST',
             url:'http://127.0.0.1:8000/api/logout'
         }).then(Response => {
+            localStorage.setItem('token',null)
             nav('/')
         })
     }

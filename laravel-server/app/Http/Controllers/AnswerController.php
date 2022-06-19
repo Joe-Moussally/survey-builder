@@ -27,4 +27,14 @@ class AnswerController extends Controller
            'answers' => $a->question_id
         ],200);
     }
+
+    public function getAnswers(Request $Request) {
+        $question_id = $Request->id;
+
+        $answers = Answer::all()->where('question_id',$Request->id);
+
+        return response()->json([
+            'answers' => $answers
+        ],200);
+    }
 }
