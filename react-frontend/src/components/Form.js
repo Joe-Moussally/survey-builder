@@ -119,6 +119,7 @@ const Form = () => {
                 data:data
             }).then((Response) => {
                 console.log(Response.data)
+                nav('/all_surveys')
             })
         })
     }

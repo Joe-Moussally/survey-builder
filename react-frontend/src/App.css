@@ -183,3 +183,9 @@ input {
     text-decoration: underline;
     font-size: 17px;
 }
+
+#logout {
+    background-color: white;
+    color: rgb(0, 73, 128);
+    text-decoration: underline;
+}
