@@ -15,17 +15,16 @@ class AnswerController extends Controller
     //     ...
     // ]
     public function addAnswers(Request $Request) {
-        $answers_to_add = json_decode($Request->answers);
-        
-        // foreach ($answers_to_add as $answer_to_add) {
-        //     $answer = new Answer;
-        //     $answer->answer = $answer_to_add->answer;
-        //     $answer->question_id = $answer_to_add->$question_id;
-        //     $answer->save();
-        // }
+
+        $a = json_decode($Request->answer);
+
+        $answer = new Answer;
+        $answer->answer = $a->value;
+        $answer->question_id = $a->question_id;
+        $answer->save();
 
         return response()->json([
-           'answers' => $answers_to_add
+           'answers' => $a->question_id
         ],200);
     }
 }

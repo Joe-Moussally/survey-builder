@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import $ from 'jquery';
+import $, { data } from 'jquery';
 
 
 import axios from 'axios'
@@ -48,31 +48,79 @@ const Form = () => {
         //extract input tags inside it   
         let inputs = document.getElementsByTagName('input')
 
-        if (inputs[1].type == 'color') {
+        for(let i=0;i<inputs.length;i++) {
+            if (inputs[i].type == 'color') {
+                
+                let value = inputs[i].value
+                let question_id =  $(inputs[i]).parent()[0].id
+
+                answers.push({
+                    'question_id':question_id,
+                    'value':value
+                })
+                setAnswers(answers)
+                continue
+            } else if (inputs[i].type == 'text') {
+
+                //skip if text in empty
+                if (inputs[i].value == '')  {
+                    continue
+                }
+
+                let value = inputs[i].value
+                let question_id = $(inputs[i]).parent()[0].id
+
+                answers.push({
+                    'question_id':question_id,
+                    'value':value
+                })
+                setAnswers(answers)
+                continue
+
+            } else if (inputs[i].type == 'radio' || inputs[i].type == 'checkbox') {
+
+                //if radio is checked
+                if (inputs[i].checked) {
+                    let value = inputs[i].value
+                    let question_id = $(inputs[i]).parent().parent()[0].id
+
+                    answers.push({
+                        'question_id':question_id,
+                        'value':value
+                    })
+                    setAnswers(answers)
+                    continue
+                }
+
+            }
+
             
-            let value = inputs[0].value
-            let question_id =  $(inputs[0]).parent()[0].id
-
-            answers.push({
-                'question_id':question_id,
-                'value':value
-            })
-            setAnswers(answers)
-            return
-        } else if (inputs[1].type == 'text') {
-            console.log(inputs[1].value)
-            let value = inputs[1].value
-            let question_id = $(inputs[1]).parent()[0].id
-
-            answers.push({
-                'question_id':question_id,
-                'value':value
-            })
-            setAnswers(answers)
-            return
-
         }
 
+        console.log(answers)
+        //call the api to store the data
+        //-----
+
+        //I had ANNOYING BUG that took 7 hours
+        //so a turn around is to for loop axios
+        //instead of for loop in php
+        answers.forEach(answer=> {
+
+        
+            let data = new FormData()
+            data.append('answer',JSON.stringify(answer))
+
+            axios({
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                method: 'POST',
+                url:'http://127.0.0.1:8000/api/add_answers',
+                data:data
+            }).then((Response) => {
+                console.log(Response.data)
+            })
+        })
     }
 
 
