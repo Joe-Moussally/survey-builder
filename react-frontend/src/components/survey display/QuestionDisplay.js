@@ -37,7 +37,6 @@ const QuestionDisplay = ( { id, question, type } ) => {
                     )
                 });
                 setAnswer(tags)
-                console.log(tags)
             })
             
 
@@ -71,7 +70,6 @@ const QuestionDisplay = ( { id, question, type } ) => {
                     
                 });
                 setAnswer(tags)
-                console.log(tags)
 
             })
             

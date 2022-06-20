@@ -84,7 +84,7 @@ class AdminController extends Controller
         //get id of logged in user
         $id = $user->original->id;
 
-        $surveys = Survey::where('user_id',$id)->get();
+        $surveys = Survey::where('user_id',$id)->orderBy('created_at','desc')->get();
 
         return response()->json([
             'surveys' => $surveys,
