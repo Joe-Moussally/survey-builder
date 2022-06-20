@@ -49,7 +49,12 @@ const Answer = (props) => {
                     answerArray.map(a =>{
                         if(a) {
                             console.log("A",a)
+                            //check if a is color answer
+                            if (a.length == 7 && a[0] == '#') {
+                                document.getElementById(props.id).innerHTML += '<input type="color" value="'+a+'" style="width: 70px;display: block; margin: 10px;">'
+                            } else {
                             document.getElementById(props.id).innerHTML += a+'<br>'
+                            }
                         }
                     })
                 }
