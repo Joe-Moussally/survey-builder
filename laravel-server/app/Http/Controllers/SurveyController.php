@@ -13,7 +13,7 @@ class SurveyController extends Controller
 {
     //api to get the survey titles
     public function getSurveys() {
-        $surveys = Survey::all();
+        $surveys = Survey::orderBy('created_at','desc')->get();
 
         return response()->json([
             'surveys' => $surveys
