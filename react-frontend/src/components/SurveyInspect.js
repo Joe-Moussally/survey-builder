@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
@@ -7,6 +7,8 @@ import QuestionDisplay from './survey display/QuestionDisplay';
 import Nav from './Nav';
 
 const SurveyInspect = () => {
+
+    let nav = useNavigate()
 
     const [title,setTitle] = useState('')
     const [questions,setQuestions] = useState([])
@@ -49,6 +51,8 @@ const SurveyInspect = () => {
                             </div>
                     ) 
                 }
+
+                <button onClick={()=>{nav('/answers/'+params.id)}}>View Answers</button>
 
             </div>
         </>
