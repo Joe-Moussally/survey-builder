@@ -92,10 +92,14 @@ const Form = () => {
                     continue
                 }
 
+            } else if (inputs[i].type == 'date') {
+                console.log("HERE")
             }
-
-            
+               
         }
+
+        return
+        
 
         console.log(answers)
         //call the api to store the data

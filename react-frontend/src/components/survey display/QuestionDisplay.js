@@ -76,7 +76,12 @@ const QuestionDisplay = ( { id, question, type } ) => {
 
         } else if (type == 'color') {
             setAnswer(<input type={'color'} className='input'></input>)
+        } else if (type == 'date') {
+            setAnswer(<input type={'date'} className='input'></input>)
         }
+
+
+        
     },[id,type])
 
     return ( 
