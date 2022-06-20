@@ -140,9 +140,9 @@ const Form = () => {
     }
 
 
-
     return ( 
         <>
+            <button id="continue-user" onClick={() => {nav('/all_surveys')}}>◀ Go back</button>
             <h1 className='title'>{title}</h1>
             <div id='inspect-survey-container'>
 
