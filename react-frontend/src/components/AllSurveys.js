@@ -25,6 +25,7 @@ const AllSurveys = () => {
 
     return ( 
         <>
+        <button onClick={() => {nav('/')}}>Log In As Admin</button>
             {
                 <div id='my-surveys-container'>
                     <h1>Recent Surveys</h1>
