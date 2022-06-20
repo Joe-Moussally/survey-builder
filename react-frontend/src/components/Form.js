@@ -93,12 +93,23 @@ const Form = () => {
                 }
 
             } else if (inputs[i].type == 'date') {
-                console.log("HERE")
-            }
-               
-        }
+                
+                let value = inputs[i].value
 
-        return
+                //if date is empty, continue
+                if (value = '' || value == null) {
+                    continue
+                } 
+
+                let question_id = $(inputs[i]).parent()[0].id
+                answers.push({
+                    'question_id':question_id,
+                    'value':value
+                })
+                setAnswers(answers)
+                continue
+            }       
+        }
         
 
         console.log(answers)

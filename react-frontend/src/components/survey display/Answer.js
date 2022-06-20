@@ -21,6 +21,7 @@ const Answer = (props) => {
                 data: data
             }).then((Response) => {
                 setAnswers(Response.data.answers)
+                console.log("ANSWER",Response)
             })
 
         },[])
