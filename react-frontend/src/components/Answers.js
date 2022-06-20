@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import QuestionDisplay from './survey display/QuestionDisplay';
 import Nav from './Nav';
+import Answer from './survey display/Answer';
 
 const Answers = () => {
 
@@ -38,17 +39,19 @@ const Answers = () => {
             <div id='inspect-survey-container'>
 
                 {
-                    questions.map(question => 
+                    questions.map(question => (
                             <div id={question.id}>{<QuestionDisplay
                                 id={question.id}
                                 question={question.question}
                                 type={null}
                                 />}
-                                <span></span>
-                            </div>
-                    ) 
-                }
+                            
+                                <span>{<Answer id={question.id}/>}</span>
 
+                            </div>)
+                    ) 
+
+                }
             </div>
         </>
      );

@@ -29,7 +29,6 @@ class AnswerController extends Controller
     }
 
     public function getAnswers(Request $Request) {
-        $question_id = $Request->id;
 
         $answers = Answer::all()->where('question_id',$Request->id);
 
